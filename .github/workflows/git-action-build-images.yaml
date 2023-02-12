@@ -3,9 +3,9 @@ run-name: ${{ github.actor }} 构建自定义镜像
 on:
   push:
     paths:
-      - 'eclipse-temurin-jdk11'
-      - 'eclipse-temurin-jdk17'
-      - 'jenkins-inbound'
+      - 'eclipse-temurin-jdk11/*'
+      - 'eclipse-temurin-jdk17/*'
+      - 'jenkins-inbound/*'
 
 jobs:
   bash-images-jdk11:
