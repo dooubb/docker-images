@@ -38,7 +38,7 @@ jobs:
       - name: build镜像
         if: ${{ success() }}
         run: |
-          docker build --pull --no-cache -f eclipse-temurin-jdk17/Dockerfile -t fanq1213/eclipse-temurin:11.0.18_10-jre-alpine eclipse-temurin-jdk17
+          docker build --pull --no-cache -f eclipse-temurin-jdk17/Dockerfile -t fanq1213/eclipse-temurin:17.0.6_10-jre-alpine eclipse-temurin-jdk17
       - name: 推送镜像
         if: ${{ success() }}
         run: |
