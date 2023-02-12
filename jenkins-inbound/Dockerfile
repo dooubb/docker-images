@@ -9,5 +9,5 @@ RUN curl -L "https://github.com/sigstore/cosign/releases/download/v1.13.0/cosign
     && chmod +x /usr/bin/kustomize \
     && chmod +x /usr/bin/kubectl \
     && chmod +x /usr/bin/cosign \
-    && rm -rf /tmp
+    && rm -rf /tmp/*
 USER jenkins
