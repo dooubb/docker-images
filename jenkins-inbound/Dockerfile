@@ -1,4 +1,4 @@
-FROM jenkins/inbound-agent:latest-jdk17
+FROM jenkins/inbound-agent:latest-jdk11
 USER 0
 RUN curl -L "https://github.com/sigstore/cosign/releases/download/v1.13.0/cosign-linux-amd64"  -o /usr/bin/cosign \
     && curl -L "https://dl.k8s.io/release/v1.26.0/bin/linux/amd64/kubectl" -o /usr/bin/kubectl \
