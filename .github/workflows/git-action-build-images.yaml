@@ -63,9 +63,9 @@ jobs:
       - name: build镜像
         if: ${{ success() }}
         run: |
-          docker build --pull --no-cache -f jenkins-inbound/Dockerfile -t fanq1213/jenkins-inbound:latest-jdk17 jenkins-inbound
+          docker build --pull --no-cache -f jenkins-inbound/Dockerfile -t fanq1213/jenkins-inbound:latest-jdk11 jenkins-inbound
       - name: 推送镜像
         if: ${{ success() }}
         run: |
-          docker push fanq1213/jenkins-inbound:latest-jdk17
+          docker push fanq1213/jenkins-inbound:latest-jdk11
 
