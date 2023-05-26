@@ -1,4 +1,5 @@
-FROM eclipse-temurin:17.0.7_7-jre-alpine
+ARG JDK17_TAG_VERSION=17.0.7_7-jre-alpine
+FROM eclipse-temurin:${JDK17_TAG_VERSION}
 ARG USER_ID=1000
 ARG GROUP_ID=1000
 
