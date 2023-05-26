@@ -87,9 +87,9 @@ jobs:
       - name: build镜像
         if: ${{ success() }}
         run: |
-          docker build --pull --no-cache -f jenkins-inbound/Dockerfile -t fanq1213/jenkins-inbound:${{ env.JDK17_TAG_VERSION }} jenkins-inbound
+          docker build --pull --no-cache -f jenkins-inbound/Dockerfile -t fanq1213/jenkins-inbound:${{ env.JENKINS_TAG_VERSION }} jenkins-inbound
       - name: 推送镜像
         if: ${{ success() }}
         run: |
-          docker push fanq1213/jenkins-inbound:${{ env.JDK17_TAG_VERSION }}
+          docker push fanq1213/jenkins-inbound:${{ env.JENKINS_TAG_VERSION }}
 
