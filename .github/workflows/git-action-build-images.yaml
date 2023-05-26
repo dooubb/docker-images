@@ -22,7 +22,7 @@ jobs:
       - name: Read Dockerfile parameters
         run: |
           # 从Jenkinsfile中提取参数并将其保存到变量中
-          TAG_VERSION=$(grep -oP 'TAG_VERSION=\K\S+' Dockerfile)
+          TAG_VERSION=$(grep -oP 'TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
 
           # 输出参数值
           echo "TAG_VERSION: $TAG_VERSION"
