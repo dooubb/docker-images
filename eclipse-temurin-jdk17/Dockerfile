@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17.0.6_10-jre-alpine
+FROM eclipse-temurin:17.0.7_7-jre-alpine
 ARG USER_ID=1000
 ARG GROUP_ID=1000
 
