@@ -34,7 +34,7 @@ jobs:
       - name: 推送镜像
         if: ${{ success() }}
         run: |
-          docker push fanq1213/eclipse-temurin:11.0.18_10-jre-alpine
+          docker push fanq1213/eclipse-temurin:${{ env.JDK11_TAG_VERSION }}
   bash-images-jdk17:
     runs-on: ubuntu-latest
     steps:
@@ -63,7 +63,7 @@ jobs:
       - name: 推送镜像
         if: ${{ success() }}
         run: |
-          docker push fanq1213/eclipse-temurin:17.0.6_10-jre-alpine
+          docker push fanq1213/eclipse-temurin:${{ env.JDK17_TAG_VERSION }}
   jenkins-inbound:
     runs-on: ubuntu-latest
     steps:
@@ -91,5 +91,5 @@ jobs:
       - name: 推送镜像
         if: ${{ success() }}
         run: |
-          docker push fanq1213/jenkins-inbound:latest-jdk11
+          docker push fanq1213/jenkins-inbound:${{ env.JDK17_TAG_VERSION }}
 
