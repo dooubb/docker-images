@@ -19,18 +19,18 @@ jobs:
         with:
           username: ${{ secrets.docker_user_name }}
           password: ${{ secrets.docker_password }}
-      - name: Read Dockerfile parameters
+      - name: 读取Dockerfile镜像tag
         run: |
           # 从Jenkinsfile中提取参数并将其保存到变量中
-          TAG_VERSION=$(grep -oP 'TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
+          TAG_VERSION=$(grep -oP 'JDK11_TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
 
           # 输出参数值
-          echo "TAG_VERSION: $TAG_VERSION"
-          echo "TAG_VERSION=$TAG_VERSION" >> $GITHUB_ENV
+          echo "JDK11_TAG_VERSION: $JDK11_TAG_VERSION"
+          echo "JDK11_TAG_VERSION=$JDK11_TAG_VERSION" >> $GITHUB_ENV
       - name: build镜像
         if: ${{ success() }}
         run: |
-          docker build --pull --no-cache -f eclipse-temurin-jdk11/Dockerfile -t fanq1213/eclipse-temurin:${{ env.TAG_VERSION }} eclipse-temurin-jdk11
+          docker build --pull --no-cache -f eclipse-temurin-jdk11/Dockerfile -t fanq1213/eclipse-temurin:${{ env.JDK11_TAG_VERSION }} eclipse-temurin-jdk11
       - name: 推送镜像
         if: ${{ success() }}
         run: |
@@ -46,11 +46,20 @@ jobs:
         with:
           username: ${{ secrets.docker_user_name }}
           password: ${{ secrets.docker_password }}
+        
+      - name: 读取Dockerfile镜像tag
+        run: |
+          # 从Jenkinsfile中提取参数并将其保存到变量中
+          TAG_VERSION=$(grep -oP 'JDK17_TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
+
+          # 输出参数值
+          echo "JDK17_TAG_VERSION: $JDK17_TAG_VERSION"
+          echo "JDK17_TAG_VERSION=$JDK17_TAG_VERSION" >> $GITHUB_ENV
 
       - name: build镜像
         if: ${{ success() }}
         run: |
-          docker build --pull --no-cache -f eclipse-temurin-jdk17/Dockerfile -t fanq1213/eclipse-temurin:17.0.6_10-jre-alpine eclipse-temurin-jdk17
+          docker build --pull --no-cache -f eclipse-temurin-jdk17/Dockerfile -t fanq1213/eclipse-temurin:${{ env.JDK17_TAG_VERSION }} eclipse-temurin-jdk17
       - name: 推送镜像
         if: ${{ success() }}
         run: |
@@ -67,10 +76,18 @@ jobs:
           username: ${{ secrets.docker_user_name }}
           password: ${{ secrets.docker_password }}
 
+      - name: 读取Dockerfile镜像tag
+        run: |
+          # 从Jenkinsfile中提取参数并将其保存到变量中
+          TAG_VERSION=$(grep -oP 'JENKINS_TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
+
+          # 输出参数值
+          echo "JENKINS_TAG_VERSION: $JENKINS_TAG_VERSION"
+          echo "JENKINS_TAG_VERSION=$JENKINS_TAG_VERSION" >> $GITHUB_ENV
       - name: build镜像
         if: ${{ success() }}
         run: |
-          docker build --pull --no-cache -f jenkins-inbound/Dockerfile -t fanq1213/jenkins-inbound:latest-jdk11 jenkins-inbound
+          docker build --pull --no-cache -f jenkins-inbound/Dockerfile -t fanq1213/jenkins-inbound:${{ env.JDK17_TAG_VERSION }} jenkins-inbound
       - name: 推送镜像
         if: ${{ success() }}
         run: |
