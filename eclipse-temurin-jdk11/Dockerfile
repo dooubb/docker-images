@@ -1,4 +1,4 @@
-ARG TAG_VERSION=11.0.19_7-jre-alpine
+ARG TAG_VERSION=11.0.19_7-jdk-alpine
 FROM eclipse-temurin:${TAG_VERSION}
 ARG USER_ID=1000
 ARG GROUP_ID=1000
