@@ -22,7 +22,7 @@ jobs:
       - name: 读取Dockerfile镜像tag
         run: |
           # 从Jenkinsfile中提取参数并将其保存到变量中
-          TAG_VERSION=$(grep -oP 'JDK11_TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
+          JDK11_TAG_VERSION=$(grep -oP 'JDK11_TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
 
           # 输出参数值
           echo "JDK11_TAG_VERSION: $JDK11_TAG_VERSION"
@@ -50,7 +50,7 @@ jobs:
       - name: 读取Dockerfile镜像tag
         run: |
           # 从Jenkinsfile中提取参数并将其保存到变量中
-          TAG_VERSION=$(grep -oP 'JDK17_TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
+          JDK17_TAG_VERSION=$(grep -oP 'JDK17_TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
 
           # 输出参数值
           echo "JDK17_TAG_VERSION: $JDK17_TAG_VERSION"
@@ -79,7 +79,7 @@ jobs:
       - name: 读取Dockerfile镜像tag
         run: |
           # 从Jenkinsfile中提取参数并将其保存到变量中
-          TAG_VERSION=$(grep -oP 'JENKINS_TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
+          JENKINS_TAG_VERSION=$(grep -oP 'JENKINS_TAG_VERSION=\K\S+' ./eclipse-temurin-jdk11/Dockerfile)
 
           # 输出参数值
           echo "JENKINS_TAG_VERSION: $JENKINS_TAG_VERSION"
