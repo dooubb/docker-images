@@ -26,6 +26,7 @@ jobs:
 
           # 输出参数值
           echo "TAG_VERSION: $TAG_VERSION"
+          echo "TAG_VERSION=$TAG_VERSION" >> $GITHUB_ENV
       - name: build镜像
         if: ${{ success() }}
         run: |
